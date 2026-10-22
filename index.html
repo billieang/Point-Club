@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#173f35">
+<meta name="description" content="Point Club — offline daily tasks, achievements, rewards, and points tracking.">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./icons/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
 <title>Point Club — Offline Rewards</title>
 <style>
 :root{--green:#173f35;--green2:#24634f;--mint:#dff2e8;--bg:#f4f7f5;--card:#fff;--text:#1c2924;--muted:#65746d;--line:#dfe7e2;--red:#b42318;--gold:#946200;--shadow:0 5px 18px rgba(20,50,38,.06)}
@@ -490,6 +494,15 @@
   }
   processScheduledDriveBackup(true);
 })();
+</script>
+<script>
+// PWA shell caching for offline use. Relative paths support GitHub Pages project sites.
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+      .catch(err => console.warn('Point Club service worker registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
