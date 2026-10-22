@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#173f35">
+<title>Point Club — Offline Rewards</title>
+<style>
+:root{--green:#173f35;--green2:#24634f;--mint:#dff2e8;--bg:#f4f7f5;--card:#fff;--text:#1c2924;--muted:#65746d;--line:#dfe7e2;--red:#b42318;--gold:#946200;--shadow:0 5px 18px rgba(20,50,38,.06)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 14px;font-weight:650;background:var(--green);color:white}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#edf3ef;color:var(--green);border:1px solid var(--line)}.danger{background:#fff0ee;color:var(--red);border:1px solid #f2d1cd}.small{padding:7px 10px;border-radius:9px;font-size:14px}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:92px}.top{background:var(--green);color:white;padding:22px 18px 24px;border-radius:0 0 24px 24px}.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:19px}.brand-mark{width:40px;height:40px;border-radius:13px;background:#2d6b55;display:grid;place-items:center;font-size:22px}.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#c5ded2;margin-top:20px}.balance{font-size:36px;font-weight:800;letter-spacing:-.04em;margin:2px 0}.balance small{font-size:15px;font-weight:600;letter-spacing:0;color:#d5e6dc}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.today{font-size:13px;color:#d5e6dc}.content{padding:18px 14px}.pagehead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:2px 2px 16px}.pagehead h1{font-size:23px;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:3px}.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px max(8px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));z-index:10}.nav button{background:transparent;color:var(--muted);padding:7px 3px;font-size:11px;display:flex;align-items:center;flex-direction:column;gap:3px}.nav button .ico{font-size:20px}.nav button.active{color:var(--green);background:var(--mint)}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:11px;box-shadow:var(--shadow)}.itemtop{display:flex;align-items:flex-start;gap:12px}.itemicon{width:43px;height:43px;border-radius:13px;background:#edf5f0;display:grid;place-items:center;font-size:21px;flex-shrink:0}.itemmain{flex:1;min-width:0}.itemtitle{font-weight:750;overflow-wrap:anywhere}.itemdesc{font-size:13px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.points{font-weight:800;color:var(--green);white-space:nowrap}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.claimed{font-size:12px;color:var(--green2);background:var(--mint);padding:7px 10px;border-radius:9px;font-weight:700}.empty{text-align:center;padding:28px 16px;color:var(--muted);background:white;border:1px dashed #cad8d0;border-radius:16px}.empty .big{font-size:30px;margin-bottom:8px}.empty b{display:block;color:var(--text);margin-bottom:4px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;background:#edf3ef;color:var(--muted);font-size:12px}.history-row{display:flex;gap:11px;align-items:flex-start}.history-sign{width:37px;height:37px;display:grid;place-items:center;border-radius:50%;background:#edf5f0;font-size:17px;flex-shrink:0}.history-detail{flex:1;min-width:0}.history-title{font-weight:700;overflow-wrap:anywhere}.history-date{font-size:12px;color:var(--muted);margin-top:3px}.change{font-weight:800;white-space:nowrap}.positive{color:#18734c}.negative{color:var(--red)}.after{font-size:11px;color:var(--muted);text-align:right;margin-top:3px}.field{display:flex;flex-direction:column;gap:6px;margin:13px 0}.field label{font-size:13px;font-weight:700}.field input,.field textarea{width:100%;padding:12px;border:1px solid #cbd8d0;border-radius:11px;background:white;color:var(--text);outline-color:var(--green2)}.field textarea{min-height:75px;resize:vertical}.modal-backdrop{position:fixed;inset:0;background:rgba(9,25,18,.5);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:12px}.modal-backdrop.show{display:flex}.modal{background:var(--bg);width:100%;max-width:560px;border-radius:22px 22px 18px 18px;padding:20px;max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.modalhead h2{font-size:20px;margin:0}.close{width:36px;height:36px;padding:0;border-radius:50%;background:#e7eee9;color:var(--green);font-size:20px}.modal-buttons{display:flex;gap:9px;margin-top:18px}.modal-buttons button{flex:1}.notice{padding:11px 13px;background:#eaf5ee;border:1px solid #cde4d5;border-radius:12px;color:#185c3e;font-size:13px;margin-bottom:12px}.notice.warn{background:#fff5e4;border-color:#f2dfb7;color:#775000}.tasktabs{display:flex;gap:8px;margin:0 2px 14px}.tasktabs button{flex:1}.secret-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:14px;user-select:none}.sectionlabel{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:750;margin:18px 2px 9px}.footer-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.hide{display:none!important}@media(min-width:650px){.content{padding:22px}.top{padding:24px 24px 28px}.nav{position:sticky;bottom:0;border:1px solid var(--line);border-radius:16px;margin:0 14px 12px;padding-bottom:7px}.app{padding-bottom:0}.modal-backdrop{align-items:center}.modal{border-radius:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="topline">
+      <div class="brand"><div class="brand-mark">✦</div><span>Point Club</span></div>
+      <span class="today" id="todayLabel"></span>
+    </div>
+    <div class="eyebrow" id="balanceLabel">Available balance</div>
+    <div class="balance"><span id="balance">0</span> <small>points</small></div>
+    <div class="today">Earn points, build habits, redeem rewards.</div>
+  </header>
+  <main class="content" id="content"></main>
+  <nav class="nav" aria-label="Main navigation">
+    <button data-page="daily" class="active"><span class="ico">☑</span>Daily tasks</button>
+    <button data-page="weekly"><span class="ico">▦</span>Weekly</button>
+    <button data-page="achievements"><span class="ico">🏆</span>Achievements</button>
+    <button data-page="history"><span class="ico">↻</span>History</button>
+    <button data-page="rewards"><span class="ico">🎁</span>Rewards</button>
+  </nav>
+</div>
+<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modalhead"><h2 id="modalTitle">Add item</h2><button class="close" id="closeModal" aria-label="Close">×</button></div>
+    <form id="itemForm">
+      <input type="hidden" id="itemId">
+      <input type="hidden" id="itemType">
+      <div class="field"><label for="itemName">Name</label><input id="itemName" maxlength="100" required placeholder="e.g. Exercise"></div>
+      <div class="field"><label for="itemPoints">Points</label><input id="itemPoints" type="number" min="1" max="100000000" step="1" required placeholder="e.g. 20"></div>
+      <div class="field"><label for="itemDesc">Description (optional)</label><textarea id="itemDesc" maxlength="500" placeholder="Add a note or details"></textarea></div>
+      <div class="modal-buttons"><button type="button" class="secondary" id="cancelModal">Cancel</button><button type="submit" id="saveItem">Save</button></div>
+    </form>
+  </div>
+</div>
+<div class="modal-backdrop" id="confirmBackdrop" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modalhead"><h2 id="confirmTitle">Confirm</h2><button class="close" id="closeConfirm" aria-label="Close">×</button></div>
+    <p id="confirmText"></p>
+    <div class="modal-buttons"><button class="secondary" id="confirmCancel">Cancel</button><button class="danger" id="confirmOk">Delete</button></div>
+  </div>
+</div>
+<script>
+(() => {
+  'use strict';
+  const STORE = 'pointClubOffline.v1';
+  const AUTO_BACKUP_STORE = 'pointClubOffline.autoBackup.v1';
+  const DRIVE_AUTO_STORE = 'pointClubOffline.driveAutoBackup.v1';
+  // Public OAuth Client ID for this browser-based app. Never put a client secret in HTML.
+  const GOOGLE_CLIENT_ID = '608085034835-ll5rbb1kicg71o3tmncvno2tfafobk2l.apps.googleusercontent.com';
+  const DRIVE_FILE_NAME = 'point-club-backup.json';
+  const DRIVE_SCOPE = 'https://www.googleapis.com/auth/drive.file';
+  let driveTokenClient = null, driveAccessToken = null, drivePendingAction = null, driveScriptPromise = null;
+  let driveAutoTimer = null, driveAutoAuthRequested = false, driveStatusMessage = 'Google Drive backup is ready to configure.';
+  const $ = id => document.getElementById(id);
+  const todayKey = () => {
+    const d = new Date();
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  };
+  const weekKey = (date=new Date()) => { const d=new Date(date); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
+  const uid = () => 'i' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
+  const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:0});
+  const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const dateTime = iso => {
+    const d = new Date(iso);
+    return Number.isNaN(d.getTime()) ? '' : d.toLocaleString([], {dateStyle:'medium',timeStyle:'short'});
+  };
+  const blankState = () => ({version:1,balance:0,dailyTasks:[],weeklyTasks:[],secretDailyTasks:[],secretWeeklyTasks:[],secretAchievements:[],secretHistoryLabel:'',maskSecretNames:true,achievements:[],rewards:[],history:[],claimedDaily:{},claimedWeekly:{},claimedSecretDaily:{},claimedSecretWeekly:{},claimedSecretAchievements:[],claimedAchievements:[]});
+  let state = load();
+  let lastPointSignature = pointSignature();
+  let page = 'daily';
+  let taskMode = 'regular';
+  let secretUnlocked = false;
+  let titleTapCount = 0, titleTapTimer = null, secretInactivityTimer = null;
+  const SECRET_TIMEOUT_MS = 60000;
+  function armSecretLock(){
+    if(!secretUnlocked)return;
+    clearTimeout(secretInactivityTimer);
+    secretInactivityTimer=setTimeout(()=>{secretUnlocked=false;taskMode='regular';titleTapCount=0;render();},SECRET_TIMEOUT_MS);
+  }
+  function lockSecret(){secretUnlocked=false;taskMode='regular';clearTimeout(secretInactivityTimer);secretInactivityTimer=null;}
+  let confirmAction = null;
+  function load(){
+    try{
+      const raw=localStorage.getItem(STORE);
+      if(!raw) return blankState();
+      const s=JSON.parse(raw), b=blankState();
+      return {...b,...s,
+        dailyTasks:Array.isArray(s.dailyTasks)?s.dailyTasks:[],
+        weeklyTasks:Array.isArray(s.weeklyTasks)?s.weeklyTasks:[],
+        secretDailyTasks:Array.isArray(s.secretDailyTasks)?s.secretDailyTasks:[],
+        secretWeeklyTasks:Array.isArray(s.secretWeeklyTasks)?s.secretWeeklyTasks:[],
+        secretAchievements:Array.isArray(s.secretAchievements)?s.secretAchievements:[],
+        achievements:Array.isArray(s.achievements)?s.achievements:[],
+        rewards:Array.isArray(s.rewards)?s.rewards:[],
+        history:Array.isArray(s.history)?s.history.map(h=>{
+          if(h&&(['Secret daily task','Secret weekly task','Secret achievement'].includes(h.kind)||['secretDaily','secretWeekly','secretAchievement'].includes(h.sourceType))){
+            return {...h,kind:'Bonus point',label:(String(s.secretHistoryLabel||'').trim()||'Bonus point'),sourceType:h.sourceType||(h.kind==='Secret daily task'?'secretDaily':h.kind==='Secret achievement'?'secretAchievement':'secretWeekly')};
+          }
+          return h;
+        }):[],
+        secretHistoryLabel:typeof s.secretHistoryLabel==='string'?s.secretHistoryLabel:'',
+        maskSecretNames:typeof s.maskSecretNames==='boolean'?s.maskSecretNames:true,
+        claimedDaily:s.claimedDaily&&typeof s.claimedDaily==='object'?s.claimedDaily:{},
+        claimedWeekly:s.claimedWeekly&&typeof s.claimedWeekly==='object'?s.claimedWeekly:{},
+        claimedSecretDaily:s.claimedSecretDaily&&typeof s.claimedSecretDaily==='object'?s.claimedSecretDaily:{},
+        claimedSecretWeekly:s.claimedSecretWeekly&&typeof s.claimedSecretWeekly==='object'?s.claimedSecretWeekly:{},
+        claimedSecretAchievements:Array.isArray(s.claimedSecretAchievements)?s.claimedSecretAchievements:[],
+        claimedAchievements:Array.isArray(s.claimedAchievements)?s.claimedAchievements:[]};
+    }catch(e){return blankState();}
+  }
+  function save(){
+    const signature=pointSignature();
+    const pointDataChanged=signature!==lastPointSignature;
+    lastPointSignature=signature;
+    const snapshot=JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2);
+    let mainSaved=false,backupSaved=false;
+    try{localStorage.setItem(STORE,JSON.stringify(state));mainSaved=true;}catch(e){}
+    try{localStorage.setItem(AUTO_BACKUP_STORE,snapshot);backupSaved=true;}catch(e){}
+    if(!mainSaved)alert('The app could not save its main data. Check available browser storage and export a backup if possible.');
+    else if(!backupSaved)console.warn('Automatic local backup could not be updated because browser storage is full.');
+    if(pointDataChanged)queueDriveAutoBackup(signature);
+  }
+  function checkNewDay(){
+    // Daily claims are keyed by local calendar date, so availability resets at local midnight.
+    const today=todayKey();
+    Object.keys(state.claimedDaily).forEach(id=>{
+      if(state.claimedDaily[id]!==today) delete state.claimedDaily[id];
+    });
+    const week=weekKey();
+    Object.keys(state.claimedWeekly).forEach(id=>{ if(state.claimedWeekly[id]!==week) delete state.claimedWeekly[id]; });
+    Object.keys(state.claimedSecretDaily).forEach(id=>{ if(state.claimedSecretDaily[id]!==today) delete state.claimedSecretDaily[id]; });
+    Object.keys(state.claimedSecretWeekly).forEach(id=>{ if(state.claimedSecretWeekly[id]!==week) delete state.claimedSecretWeekly[id]; });
+    save();
+    $('todayLabel').textContent=new Date().toLocaleDateString([], {weekday:'short',month:'short',day:'numeric'});
+  }
+  function addHistory(kind,label,delta,itemId=null,sourceType=null){
+    state.balance += delta;
+    state.history.unshift({id:uid(),kind,label:String(label),delta,balanceAfter:state.balance,at:new Date().toISOString(),itemId,sourceType});
+    save();
+  }
+  function setPage(next){page=next;if(next!=='achievements'&&taskMode==='secretAchievements')taskMode='regular';if(next==='achievements'&&taskMode!=='secretAchievements')taskMode='regular';document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));render();}
+  document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));
+  function itemCard(item,type){
+    const icons={daily:'☑',weekly:'▦',secretDaily:'◆',secretWeekly:'◆',secretAchievement:'◆',achievement:'🏆',reward:'🎁'};
+    const claimKey={daily:'claimedDaily',weekly:'claimedWeekly',secretDaily:'claimedSecretDaily',secretWeekly:'claimedSecretWeekly'};
+    const periodKey=type==='daily'||type==='secretDaily'?todayKey():weekKey();
+    const claimed=!!claimKey[type]&&state[claimKey[type]][item.id]===periodKey;
+    const completed=(type==='achievement'&&state.claimedAchievements.includes(item.id))||(type==='secretAchievement'&&state.claimedSecretAchievements.includes(item.id));
+    let action='';
+    if(type==='daily'||type==='secretDaily') action=claimed?'<span class="claimed">✓ Earned today</span>':`<button data-action="earn" data-type="${type}" data-id="${escapeHTML(item.id)}">Earn +${fmt(item.points)}</button>`;
+    if(type==='weekly'||type==='secretWeekly') action=claimed?'<span class="claimed">✓ Earned this week</span>':`<button data-action="earn-weekly" data-type="${type}" data-id="${escapeHTML(item.id)}">Earn +${fmt(item.points)}</button>`;
+    if(type==='achievement'||type==='secretAchievement') action=completed?'<span class="claimed">✓ Completed for life</span>':`<button data-action="claim-achievement" data-type="${type}" data-id="${escapeHTML(item.id)}">Claim +${fmt(item.points)}</button>`;
+    if(type==='reward') action=`<button data-action="redeem" data-id="${escapeHTML(item.id)}">Redeem −${fmt(item.points)}</button>`;
+    return `<article class="card"><div class="itemtop"><div class="itemicon">${icons[type]}</div><div class="itemmain"><div class="itemtitle">${escapeHTML(item.name)}</div>${item.description?`<div class="itemdesc">${escapeHTML(item.description)}</div>`:''}</div><div class="points">${fmt(item.points)} pts</div></div><div class="actions">${action}<button class="secondary small" data-action="edit" data-type="${type}" data-id="${escapeHTML(item.id)}">Edit</button><button class="danger small" data-action="delete" data-type="${type}" data-id="${escapeHTML(item.id)}">Delete</button></div></article>`;
+  }
+  function empty(label,desc){return `<div class="empty"><div class="big">＋</div><b>${label}</b><span>${desc}</span></div>`;}
+  function isSecretHistory(h){return ['secretDaily','secretWeekly','secretAchievement'].includes(h.sourceType)||['Secret daily task','Secret weekly task','Secret achievement'].includes(h.kind);}
+  function historyDisplayLabel(h){
+    if(isSecretHistory(h)&&state.maskSecretNames)return String(state.secretHistoryLabel||'').trim()||'Bonus point';
+    if(isSecretHistory(h)&&!h.secretName)return h.label||'Bonus point';
+    return isSecretHistory(h)?h.secretName:h.label;
+  }
+  function render(){
+    checkNewDay();
+    $('balance').textContent=fmt(state.balance);
+    $('balanceLabel').textContent=state.balance<0?'Points owed':'Available balance';
+    let title='',desc='',type='',items=[],tabs='';
+    if(page==='daily'){
+      title='Daily tasks';desc=taskMode==='secret'?'Secret daily tasks. These reset at local midnight.':'Claim each task once per local calendar day.';
+      type=taskMode==='secret'?'secretDaily':'daily';items=taskMode==='secret'?state.secretDailyTasks:state.dailyTasks;
+      if(secretUnlocked) tabs=`<div class="tasktabs"><button class="${taskMode==='regular'?'':'secondary'}" data-task-mode="regular">Daily</button><button class="${taskMode==='secret'?'secondary':''}" data-task-mode="secret">Secret daily</button><button class="danger small" id="hideSecretNow">Hide now ×</button></div>`;
+    }
+    if(page==='weekly'){
+      title='Weekly tasks';desc=taskMode==='secret'?'Secret weekly tasks. These reset Monday at 00:00 local time.':'Claim each task once per week. Claims reset Monday at 00:00 local time.';
+      type=taskMode==='secret'?'secretWeekly':'weekly';items=taskMode==='secret'?state.secretWeeklyTasks:state.weeklyTasks;
+      if(secretUnlocked) tabs=`<div class="tasktabs"><button class="${taskMode==='regular'?'':'secondary'}" data-task-mode="regular">Weekly</button><button class="${taskMode==='secret'?'secondary':''}" data-task-mode="secret">Secret weekly</button><button class="danger small" id="hideSecretNow">Hide now ×</button></div>`;
+    }
+    if(page==='achievements'){
+      const secretAchievementMode=secretUnlocked&&taskMode==='secretAchievements';
+      title=secretAchievementMode?'Secret achievements':'Achievements';desc=secretAchievementMode?'Hidden one-time achievements that remain completed permanently.':'One-time rewards that stay completed permanently.';type=secretAchievementMode?'secretAchievement':'achievement';items=secretAchievementMode?state.secretAchievements:state.achievements;
+      if(secretUnlocked) tabs=`<div class="tasktabs"><button class="${secretAchievementMode?'secondary':''}" data-achievement-mode="regular">Achievements</button><button class="${secretAchievementMode?'':'secondary'}" data-achievement-mode="secretAchievements">Secret achievements</button><button class="danger small" id="hideSecretNow">Hide now ×</button></div>`;
+    }
+    if(page==='rewards'){title='Rewards';desc='Redeem now, even if you do not have enough points. A negative balance is a points loan that future earnings repay automatically.';type='reward';items=state.rewards;}
+    if(page==='history'){
+      $('content').innerHTML=`<div class="pagehead"><div><h1>Point history</h1><div class="sub">Every point change, newest first. Remove an incorrect transaction to reverse its points.</div></div></div>${state.history.length?state.history.map(h=>`<article class="card"><div class="history-row"><div class="history-sign">${h.delta>=0?'＋':'−'}</div><div class="history-detail"><div class="history-title">${escapeHTML(historyDisplayLabel(h))}</div><div class="history-date">${escapeHTML(dateTime(h.at))} · ${escapeHTML(h.kind)}</div><div class="actions"><button class="danger small" data-action="delete-history" data-id="${escapeHTML(h.id)}">Remove wrong input</button></div></div><div><div class="change ${h.delta>=0?'positive':'negative'}">${h.delta>0?'+':''}${fmt(h.delta)}</div><div class="after">Balance: ${fmt(h.balanceAfter)}</div></div></div></article>`).join(''):`${empty('No transactions yet','Earn points from a task or achievement, or redeem a reward.')}`}<div class="footer-tools"><button class="secondary" id="exportBtn">Export backup file</button><button class="secondary" id="importBtn">Restore from file</button><button class="secondary" id="downloadAutoBackupBtn">Download auto-backup</button><button class="secondary" id="restoreAutoBackupBtn">Restore auto-backup</button><input class="hide" type="file" id="importFile" accept="application/json,.json"></div><section class="card" style="margin-top:18px"><b>Automatic local backup</b><div class="sub">A backup copy is refreshed whenever Point Club saves changes and when the page is hidden or closed. It stays inside this browser; mobile browsers do not permit a web page to silently create a downloadable file when closing.</div><div class="sub" id="autoBackupStatus" style="margin-top:8px">Stored on this device.</div></section><section class="card" style="margin-top:18px"><b>Google Drive backup</b><div class="sub">Scheduled cloud backup waits one hour after the latest point change, then uploads the latest data once. If the PWA is closed or suspended, it checks when reopened and uploads overdue changes after Google authorization. Local automatic backup remains enabled.</div><div class="actions"><button id="driveConnect">Connect Google Drive</button><button class="secondary" id="driveRestore">Restore from Drive</button><button class="secondary" id="driveBackupNow">Manual backup</button></div><div class="sub" id="driveStatus" style="margin-top:10px"></div><p class="sub">Requires the app to run from an authorized HTTPS origin or localhost. Google OAuth does not work when opened directly as a file:// URL. Backups are stored as a file named point-club-backup.json in your Google Drive.</p></section><p class="sub">Backups include your balance, items, claims, settings, and transaction history. Removing a transaction reverses its point change.</p>`;
+      $('exportBtn').addEventListener('click',exportBackup);
+      $('importBtn').addEventListener('click',()=>$('importFile').click());
+      $('importFile').addEventListener('change',importBackup);
+      $('downloadAutoBackupBtn').addEventListener('click',downloadAutoBackup);
+      $('restoreAutoBackupBtn').addEventListener('click',restoreAutoBackup);
+      const backupStatus=$('autoBackupStatus');
+      try{backupStatus.textContent=localStorage.getItem(AUTO_BACKUP_STORE)?'Automatic backup is available in this browser.':'No automatic backup has been created yet.';}catch(e){backupStatus.textContent='Automatic backup storage is unavailable in this browser.';}
+      $('content').querySelectorAll('[data-action="delete-history"]').forEach(b=>b.addEventListener('click',()=>removeHistory(b.dataset.id)));
+      setupDriveControls();
+      return;
+    }
+    const addLabel=type==='daily'?'Add task':type==='weekly'?'Add weekly task':type==='secretDaily'?'Add secret task':type==='secretWeekly'?'Add secret weekly task':type==='secretAchievement'?'Add secret achievement':type==='achievement'?'Add achievement':'Add reward';
+    $('content').innerHTML=`<div class="pagehead"><div><h1 id="pageTitle">${title}</h1><div class="sub">${desc}</div></div><button id="addBtn">＋ Add</button></div>${tabs}${page==='daily'&&taskMode==='regular'?`<section class="card"><b>Quick point adjustment</b><div class="sub">Enter any point amount to add or deduct repeatedly. A blank task name is recorded as “Bonus point”.</div><div class="field"><label for="manualPointName">Task name (optional)</label><input id="manualPointName" maxlength="60" placeholder="Bonus point"></div><div class="field"><label for="manualPointAmount">Points</label><input id="manualPointAmount" type="number" min="1" max="100000000" step="1" placeholder="Enter points"></div><div class="actions"><button id="manualAddPoints">＋ Add points</button><button class="danger" id="manualDeductPoints">− Deduct points</button></div></section>`:''}${((taskMode==='secret'&&(page==='daily'||page==='weekly'))||(page==='achievements'&&secretUnlocked&&taskMode==='secretAchievements'))?`<section class="card"><b>Secret name settings</b><div class="sub">Choose whether secret task and achievement names are automatically replaced in History.</div><div class="actions"><button class="${state.maskSecretNames?'':'secondary'} small" id="toggleSecretNameMask">Auto-change names: ${state.maskSecretNames?'ON':'OFF'}</button></div><div class="field"><label for="secretHistoryLabel">Replacement name in History</label><input id="secretHistoryLabel" maxlength="60" value="${escapeHTML(state.secretHistoryLabel)}" placeholder="Bonus point"></div><button class="secondary small" id="saveSecretHistoryLabel">Save replacement name</button></section>`:''}${items.length?items.map(i=>itemCard(i,type)).join(''):empty('Nothing here yet',`Tap “${addLabel}” to create your first item.`)}${secretUnlocked?'':'<div class="secret-hint" id="secretHint">There may be more here than meets the eye.</div>'}<p class="sub">Saved on this device.</p>`;
+    $('addBtn').addEventListener('click',()=>openItem(type));
+    const hideSecretNow=$('hideSecretNow');
+    if(hideSecretNow)hideSecretNow.addEventListener('click',()=>{lockSecret();render();});
+    const manualAdjust=(sign)=>{const raw=$('manualPointAmount')?.value,amount=Number(raw),label=String($('manualPointName')?.value||'').trim()||'Bonus point';if(raw===''||!Number.isSafeInteger(amount)||amount<1||amount>100000000){alert('Enter a whole-number point amount greater than zero.');return;}addHistory('Manual adjustment',label,sign*amount,null,'manual');render();};
+    const manualAdd=$('manualAddPoints'),manualDeduct=$('manualDeductPoints');
+    if(manualAdd)manualAdd.addEventListener('click',()=>manualAdjust(1));
+    if(manualDeduct)manualDeduct.addEventListener('click',()=>manualAdjust(-1));
+    const saveSecretLabel=$('saveSecretHistoryLabel');
+    if(saveSecretLabel)saveSecretLabel.addEventListener('click',()=>{state.secretHistoryLabel=$('secretHistoryLabel').value.trim();save();render();alert('Replacement name saved. Blank uses “Bonus point”.');armSecretLock();});
+    const toggleSecretMask=$('toggleSecretNameMask');
+    if(toggleSecretMask)toggleSecretMask.addEventListener('click',()=>{state.maskSecretNames=!state.maskSecretNames;save();render();armSecretLock();});
+    $('content').querySelectorAll('[data-action]').forEach(b=>b.addEventListener('click',()=>handleAction(b.dataset.action,b.dataset.id,b.dataset.type)));
+    $('content').querySelectorAll('[data-task-mode]').forEach(b=>b.addEventListener('click',()=>{taskMode=b.dataset.taskMode;armSecretLock();render();}));
+    $('content').querySelectorAll('[data-achievement-mode]').forEach(b=>b.addEventListener('click',()=>{taskMode=b.dataset.achievementMode;armSecretLock();render();}));
+    const heading=$('pageTitle');
+    if(heading&&(page==='daily'||page==='weekly'||page==='achievements')) heading.addEventListener('click',()=>{
+      titleTapCount++; clearTimeout(titleTapTimer); titleTapTimer=setTimeout(()=>{titleTapCount=0;},3000);
+      if(titleTapCount>=7){secretUnlocked=true;taskMode=page==='achievements'?'secretAchievements':'secret';titleTapCount=0;clearTimeout(titleTapTimer);armSecretLock();render();}
+    });
+  }
+  function openItem(type,item=null){
+    const names={daily:'daily task',weekly:'weekly task',secretDaily:'secret task',secretWeekly:'secret weekly task',secretAchievement:'secret achievement',achievement:'achievement',reward:'reward'};
+    $('modalTitle').textContent=(item?'Edit ':'Add ')+names[type];
+    $('itemId').value=item?.id||'';$('itemType').value=type;
+    $('itemName').value=item?.name||'';$('itemPoints').value=item?.points??'';
+    $('itemDesc').value=item?.description||'';
+    $('modalBackdrop').classList.add('show');setTimeout(()=>$('itemName').focus(),80);
+  }
+  function closeItem(){$('modalBackdrop').classList.remove('show');}
+  $('closeModal').addEventListener('click',closeItem);$('cancelModal').addEventListener('click',closeItem);
+  $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeItem();});
+  $('itemForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const type=$('itemType').value,id=$('itemId').value,name=$('itemName').value.trim(),points=Number($('itemPoints').value),description=$('itemDesc').value.trim();
+    if(!name||!Number.isSafeInteger(points)||points<1){alert('Enter a name and a whole-number point value greater than zero.');return;}
+    const key=type==='daily'?'dailyTasks':type==='weekly'?'weeklyTasks':type==='secretDaily'?'secretDailyTasks':type==='secretWeekly'?'secretWeeklyTasks':type==='secretAchievement'?'secretAchievements':type==='achievement'?'achievements':'rewards';
+    if(id){const item=state[key].find(x=>x.id===id);if(item){item.name=name;item.points=points;item.description=description;}}
+    else state[key].push({id:uid(),name,points,description,createdAt:new Date().toISOString()});
+    save();closeItem();render();
+  });
+  function removeHistory(id){
+    const h=state.history.find(x=>x.id===id);if(!h)return;
+    showConfirm('Remove transaction?',`Remove “${h.label}” (${h.delta>0?'+':''}${fmt(h.delta)} points)? Your balance will be adjusted by ${fmt(-h.delta)} points. This cannot be undone except by restoring a backup.`,()=>{
+      state.balance-=Number(h.delta)||0;state.history=state.history.filter(x=>x.id!==id);
+      if(h.kind==='Daily task'){const item=state.dailyTasks.find(x=>x.id===h.itemId)||state.dailyTasks.find(x=>x.name===h.label);if(item&&state.claimedDaily[item.id]===todayKey())delete state.claimedDaily[item.id];}
+      if(h.kind==='Weekly task'){const item=state.weeklyTasks.find(x=>x.id===h.itemId)||state.weeklyTasks.find(x=>x.name===h.label);if(item&&state.claimedWeekly[item.id]===weekKey())delete state.claimedWeekly[item.id];}
+      if(h.sourceType==='secretDaily'||h.kind==='Secret daily task'){const item=state.secretDailyTasks.find(x=>x.id===h.itemId);if(item&&state.claimedSecretDaily[item.id]===todayKey())delete state.claimedSecretDaily[item.id];}
+      if(h.sourceType==='secretWeekly'||h.kind==='Secret weekly task'){const item=state.secretWeeklyTasks.find(x=>x.id===h.itemId);if(item&&state.claimedSecretWeekly[item.id]===weekKey())delete state.claimedSecretWeekly[item.id];}
+      if(h.kind==='Achievement'){const item=state.achievements.find(x=>x.id===h.itemId)||state.achievements.find(x=>x.name===h.label);if(item)state.claimedAchievements=state.claimedAchievements.filter(x=>x!==item.id);}
+      if(h.sourceType==='secretAchievement'){state.claimedSecretAchievements=state.claimedSecretAchievements.filter(x=>x!==h.itemId);}
+      let running=state.balance;
+      for(let i=0;i<state.history.length;i++){state.history[i].balanceAfter=running;running-=Number(state.history[i].delta)||0;}
+      save();render();
+    });
+  }
+  function handleAction(action,id,type){
+    if(action==='delete-history'){removeHistory(id);return;}
+    const key=type==='daily'?'dailyTasks':type==='weekly'?'weeklyTasks':type==='secretDaily'?'secretDailyTasks':type==='secretWeekly'?'secretWeeklyTasks':type==='secretAchievement'?'secretAchievements':type==='achievement'?'achievements':'rewards';
+    if(action==='edit'){const item=state[key].find(x=>x.id===id);if(item)openItem(type,item);return;}
+    if(action==='delete'){
+      const item=state[key].find(x=>x.id===id);if(!item)return;
+      showConfirm('Delete item?',`Delete “${item.name}”? Existing points and history will remain unchanged.`,()=>{
+        state[key]=state[key].filter(x=>x.id!==id);
+        // Deliberately preserve history and claim records, including lifetime claim tombstones.
+        save();render();
+      });return;
+    }
+    if(action==='earn'){
+      const secret=type==='secretDaily', items=secret?state.secretDailyTasks:state.dailyTasks, claims=secret?state.claimedSecretDaily:state.claimedDaily, period=todayKey();
+      const item=items.find(x=>x.id===id);if(!item||claims[id]===period)return;
+      claims[id]=period;addHistory(secret?'Bonus point':'Daily task',secret?(String(state.secretHistoryLabel||'').trim()||'Bonus point'):item.name,item.points,item.id,secret?'secretDaily':null);if(secret){state.history[0].secretName=item.name;save();}render();return;
+    }
+    if(action==='earn-weekly'){
+      const secret=type==='secretWeekly', items=secret?state.secretWeeklyTasks:state.weeklyTasks, claims=secret?state.claimedSecretWeekly:state.claimedWeekly, period=weekKey();
+      const item=items.find(x=>x.id===id);if(!item||claims[id]===period)return;
+      claims[id]=period;addHistory(secret?'Bonus point':'Weekly task',secret?(String(state.secretHistoryLabel||'').trim()||'Bonus point'):item.name,item.points,item.id,secret?'secretWeekly':null);if(secret){state.history[0].secretName=item.name;save();}render();return;
+    }
+    if(action==='claim-achievement'){
+      const secret=type==='secretAchievement';const list=secret?state.secretAchievements:state.achievements;const claimedList=secret?state.claimedSecretAchievements:state.claimedAchievements;
+      const item=list.find(x=>x.id===id);if(!item||claimedList.includes(id))return;
+      claimedList.push(id);addHistory(secret?'Bonus point':'Achievement',secret?(String(state.secretHistoryLabel||'').trim()||'Bonus point'):item.name,item.points,item.id,secret?'secretAchievement':null);if(secret){state.history[0].secretName=item.name;save();}render();return;
+    }
+    if(action==='redeem'){
+      const item=state.rewards.find(x=>x.id===id);if(!item)return;
+      const resultingBalance=state.balance-item.points;
+      const debtNotice=resultingBalance<0?` This creates a points loan of ${fmt(Math.abs(resultingBalance))} points. Future points earned will reduce the negative balance until it reaches zero.`:' ';
+      showConfirm('Redeem reward?',`Redeem “${item.name}” for ${fmt(item.points)} points? Your balance will become ${fmt(resultingBalance)} points.${debtNotice}`,()=>{
+        addHistory('Reward redemption',item.name,-item.points,item.id);render();
+      },'Redeem');
+    }
+  }
+  function showConfirm(title,body,action,ok='Delete'){
+    $('confirmTitle').textContent=title;$('confirmText').textContent=body;$('confirmOk').textContent=ok;confirmAction=action;$('confirmBackdrop').classList.add('show');
+  }
+  function closeConfirm(){$('confirmBackdrop').classList.remove('show');confirmAction=null;}
+  $('closeConfirm').addEventListener('click',closeConfirm);$('confirmCancel').addEventListener('click',closeConfirm);
+  $('confirmBackdrop').addEventListener('click',e=>{if(e.target===$('confirmBackdrop'))closeConfirm();});
+  $('confirmOk').addEventListener('click',()=>{const fn=confirmAction;closeConfirm();if(fn)fn();});
+  function getDriveConfig(){return {clientId:GOOGLE_CLIENT_ID};}
+  function setDriveStatus(message){driveStatusMessage=message;const el=$('driveStatus');if(el)el.textContent=message;}
+  function pointSignature(){
+    const rows=Array.isArray(state?.history)?state.history.map(h=>[h?.id,h?.delta,h?.at,h?.balanceAfter]):[];
+    const raw=JSON.stringify([state?.balance,rows]);let hash=2166136261;for(let i=0;i<raw.length;i++){hash^=raw.charCodeAt(i);hash=Math.imul(hash,16777619);}return (hash>>>0).toString(36);
+  }
+  function readDriveAutoMeta(){try{return {...{pendingKey:null,pendingAt:0,completedKey:null},...JSON.parse(localStorage.getItem(DRIVE_AUTO_STORE)||'{}')};}catch(e){return {pendingKey:null,pendingAt:0,completedKey:null};}}
+  function writeDriveAutoMeta(meta){try{localStorage.setItem(DRIVE_AUTO_STORE,JSON.stringify(meta));}catch(e){}}
+  function queueDriveAutoBackup(signature){
+    const meta=readDriveAutoMeta();meta.pendingKey=signature;meta.pendingAt=Date.now();writeDriveAutoMeta(meta);
+    clearTimeout(driveAutoTimer);driveAutoTimer=setTimeout(()=>processScheduledDriveBackup(false),60*60*1000);
+    setDriveStatus('Automatic Google Drive backup scheduled for one hour after the latest point change.');
+  }
+  function markDriveBackupComplete(signature){
+    const meta=readDriveAutoMeta();meta.completedKey=signature;if(meta.pendingKey===signature){meta.pendingKey=null;meta.pendingAt=0;}writeDriveAutoMeta(meta);
+  }
+  function processScheduledDriveBackup(onStartup=false){
+    const meta=readDriveAutoMeta();
+    if(!meta.pendingKey||meta.completedKey===meta.pendingKey)return;
+    const dueAt=(Number(meta.pendingAt)||0)+60*60*1000;
+    const remaining=dueAt-Date.now();
+    if(remaining>0){
+      clearTimeout(driveAutoTimer);
+      driveAutoTimer=setTimeout(()=>processScheduledDriveBackup(false),remaining);
+      return;
+    }
+    if(driveAccessToken){
+      uploadDriveBackup().then(()=>setDriveStatus('Scheduled Google Drive backup completed at '+new Date().toLocaleTimeString()+'.'))
+        .catch(err=>{
+          setDriveStatus('Scheduled backup is still pending: '+err.message+'. Tap Connect Google Drive to reauthorize and retry.');
+          if(/HTTP 401|not connected/i.test(err.message))driveAccessToken=null;
+        });
+      return;
+    }
+    if(driveAutoAuthRequested)return;
+    driveAutoAuthRequested=true;
+    setDriveStatus('A scheduled backup is overdue. Google authorization may require a popup; if it is blocked or does not open, tap Connect Google Drive.');
+    drivePendingAction='autoUpload';
+    requestDriveToken(GOOGLE_CLIENT_ID);
+  }
+  function drivePayload(){return JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2);}
+  function setupDriveControls(){
+    const meta=readDriveAutoMeta();
+    setDriveStatus(meta.pendingKey&&meta.completedKey!==meta.pendingKey?'Automatic backup pending. It will upload one hour after the latest point change, or when overdue and the app next opens.':driveStatusMessage);
+    $('driveConnect')?.addEventListener('click',()=>{drivePendingAction='connect';setDriveStatus('Connecting to Google…');requestDriveToken(GOOGLE_CLIENT_ID);});
+    $('driveRestore')?.addEventListener('click',()=>{drivePendingAction='restore';setDriveStatus('Authorizing Google Drive access…');requestDriveToken(GOOGLE_CLIENT_ID);});
+    $('driveBackupNow')?.addEventListener('click',()=>{
+      if(driveAccessToken){uploadDriveBackup().then(()=>setDriveStatus('Manual backup completed.')).catch(err=>{setDriveStatus('Backup failed: '+err.message);alert('Google Drive backup failed: '+err.message);});}
+      else{drivePendingAction='upload';setDriveStatus('Authorizing Google Drive access…');requestDriveToken(GOOGLE_CLIENT_ID);}
+    });
+  }
+  function loadGoogleIdentity(){
+    if(window.google?.accounts?.oauth2)return Promise.resolve();
+    if(driveScriptPromise)return driveScriptPromise;
+    driveScriptPromise=new Promise((resolve,reject)=>{
+      const script=document.createElement('script');script.src='https://accounts.google.com/gsi/client';script.async=true;script.defer=true;
+      script.onload=()=>window.google?.accounts?.oauth2?resolve():reject(new Error('Google Identity Services did not load.'));
+      script.onerror=()=>reject(new Error('Could not load Google sign-in. Check your internet connection and app origin.'));
+      document.head.appendChild(script);
+    });return driveScriptPromise;
+  }
+  async function requestDriveToken(clientId){
+    try{
+      await loadGoogleIdentity();
+      driveTokenClient=google.accounts.oauth2.initTokenClient({client_id:clientId,scope:DRIVE_SCOPE,callback:async response=>{
+        if(response.error||!response.access_token){
+          driveAccessToken=null;driveAutoAuthRequested=false;
+          setDriveStatus('Google authorization was not completed. If a scheduled backup is pending, tap Connect Google Drive to retry.');
+          if(drivePendingAction!=='autoUpload')alert('Google Drive authorization failed: '+(response.error_description||response.error||'No access token returned.'));
+          drivePendingAction=null;
+          return;
+        }
+        driveAccessToken=response.access_token;driveAutoAuthRequested=false;
+        const action=drivePendingAction;drivePendingAction=null;
+        try{if(action==='connect'){setDriveStatus('Connected to Google Drive for this session. Scheduled backups will upload after one hour without further point changes.');processScheduledDriveBackup(false);}else if(action==='upload'){await uploadDriveBackup();setDriveStatus('Manual backup completed at '+new Date().toLocaleTimeString()+'.');}else if(action==='autoUpload'){await uploadDriveBackup();setDriveStatus('Scheduled Google Drive backup completed at '+new Date().toLocaleTimeString()+'.');}else if(action==='restore'){await downloadDriveBackup();}}
+        catch(err){setDriveStatus('Drive operation failed: '+err.message);alert('Google Drive backup failed: '+err.message);}
+      },error_callback:error=>{driveAutoAuthRequested=false;setDriveStatus('Google authorization window was closed or blocked.');alert('Google authorization did not complete. '+(error?.message||''));}});
+      driveTokenClient.requestAccessToken({prompt:''});
+    }catch(err){driveAutoAuthRequested=false;setDriveStatus(err.message);alert(err.message+'\n\nGoogle Drive requires the app to run from an authorized HTTPS origin or localhost, not file://.');}
+  }
+  async function driveApi(url,options={}){
+    if(!driveAccessToken)throw new Error('Not connected to Google Drive.');
+    const response=await fetch(url,{...options,headers:{Authorization:'Bearer '+driveAccessToken,...(options.headers||{})}});
+    if(!response.ok){let detail='';try{detail=(await response.json()).error?.message||'';}catch(e){}if(response.status===401)driveAccessToken=null;throw new Error(detail||('Google Drive API returned HTTP '+response.status));}
+    if(response.status===204)return null;
+    const ct=response.headers.get('content-type')||'';return ct.includes('application/json')?response.json():response.text();
+  }
+  async function findDriveBackup(){
+    const q=encodeURIComponent("name='"+DRIVE_FILE_NAME+"' and trashed=false");
+    const result=await driveApi('https://www.googleapis.com/drive/v3/files?spaces=drive&q='+q+'&pageSize=100&orderBy=modifiedTime%20desc&fields=files(id,name,modifiedTime)');
+    return result.files?.[0]||null;
+  }
+  async function uploadDriveBackup(){
+    setDriveStatus('Uploading backup to Google Drive…');
+    const uploadedSignature=pointSignature();const existing=await findDriveBackup();const content=drivePayload();
+    if(existing){
+      await driveApi('https://www.googleapis.com/upload/drive/v3/files/'+encodeURIComponent(existing.id)+'?uploadType=media',{method:'PATCH',headers:{'Content-Type':'application/json'},body:content});
+    }else{
+      const boundary='pointclub_'+uid();const metadata=JSON.stringify({name:DRIVE_FILE_NAME,mimeType:'application/json'});
+      const body='--'+boundary+'\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n'+metadata+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+content+'\r\n--'+boundary+'--';
+      await driveApi('https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id,name',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body});
+    }
+    markDriveBackupComplete(uploadedSignature);
+    if(pointSignature()!==uploadedSignature)queueDriveAutoBackup(pointSignature());
+    setDriveStatus('Backup uploaded to Google Drive at '+new Date().toLocaleTimeString()+'.');
+  }
+  async function downloadDriveBackupFile(){
+    setDriveStatus('Looking for the latest Drive backup…');const file=await findDriveBackup();
+    if(!file){setDriveStatus('No Point Club backup found in this Google account.');alert('No Point Club backup was found in this Google account.');return;}
+    const response=await fetch('https://www.googleapis.com/drive/v3/files/'+encodeURIComponent(file.id)+'?alt=media',{headers:{Authorization:'Bearer '+driveAccessToken}});
+    if(!response.ok){if(response.status===401)driveAccessToken=null;throw new Error('Could not download the backup (HTTP '+response.status+').');}
+    const blob=await response.blob();const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='point-club-drive-backup-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    setDriveStatus('Drive backup downloaded to this device.');
+  }
+  async function downloadDriveBackup(){
+    setDriveStatus('Looking for the latest Drive backup…');const file=await findDriveBackup();
+    if(!file){setDriveStatus('No Point Club backup found in this Google account.');alert('No Point Club backup was found in this Google account.');return;}
+    const response=await fetch('https://www.googleapis.com/drive/v3/files/'+encodeURIComponent(file.id)+'?alt=media',{headers:{Authorization:'Bearer '+driveAccessToken}});
+    if(!response.ok){if(response.status===401)driveAccessToken=null;throw new Error('Could not download the backup (HTTP '+response.status+').');}
+    const backup=await response.text();
+    let parsed;try{parsed=JSON.parse(backup);}catch(e){throw new Error('The Drive file is not valid JSON.');}
+    if(!parsed||!Number.isFinite(parsed.balance)||!Array.isArray(parsed.dailyTasks)||!Array.isArray(parsed.achievements)||!Array.isArray(parsed.rewards)||!Array.isArray(parsed.history))throw new Error('The Drive file is not a valid Point Club backup.');
+    showConfirm('Restore Drive backup?',`Restore the latest Google Drive backup (${file.modifiedTime?new Date(file.modifiedTime).toLocaleString():'modified date unavailable'})? This replaces the data currently on this device.`,()=>{
+      const clean={...blankState(),...parsed,weeklyTasks:Array.isArray(parsed.weeklyTasks)?parsed.weeklyTasks:[],secretDailyTasks:Array.isArray(parsed.secretDailyTasks)?parsed.secretDailyTasks:[],secretWeeklyTasks:Array.isArray(parsed.secretWeeklyTasks)?parsed.secretWeeklyTasks:[],secretAchievements:Array.isArray(parsed.secretAchievements)?parsed.secretAchievements:[],claimedWeekly:parsed.claimedWeekly&&typeof parsed.claimedWeekly==='object'?parsed.claimedWeekly:{},claimedSecretDaily:parsed.claimedSecretDaily&&typeof parsed.claimedSecretDaily==='object'?parsed.claimedSecretDaily:{},claimedSecretWeekly:parsed.claimedSecretWeekly&&typeof parsed.claimedSecretWeekly==='object'?parsed.claimedSecretWeekly:{},claimedSecretAchievements:Array.isArray(parsed.claimedSecretAchievements)?parsed.claimedSecretAchievements:[]};delete clean.exportedAt;state={...clean,version:1};save();render();alert('Google Drive backup restored.');
+    },'Restore');
+    setDriveStatus('Latest backup found. Confirm the restore prompt to replace local data.');
+  }
+  function exportBackup(){
+    const data=JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2);
+    const blob=new Blob([data],{type:'application/json'});
+    const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='point-club-backup-'+todayKey()+'.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  }
+  function downloadAutoBackup(){
+    try{const raw=localStorage.getItem(AUTO_BACKUP_STORE);if(!raw){alert('No automatic backup is available yet.');return;}downloadJSON(raw,'point-club-auto-backup-'+todayKey()+'.json');}
+    catch(e){alert('Could not access the automatic backup in this browser.');}
+  }
+  function downloadJSON(data,filename){
+    const blob=new Blob([data],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+  function restoreAutoBackup(){
+    let raw;try{raw=localStorage.getItem(AUTO_BACKUP_STORE);}catch(e){}
+    if(!raw){alert('No automatic backup is available yet.');return;}
+    try{const parsed=JSON.parse(raw);if(!parsed||!Number.isFinite(parsed.balance)||!Array.isArray(parsed.dailyTasks)||!Array.isArray(parsed.history))throw new Error('Invalid backup');
+      showConfirm('Restore automatic backup?','This replaces the current Point Club data with the most recent locally saved backup.',()=>{const clean={...blankState(),...parsed};delete clean.exportedAt;state={...clean,version:1};save();render();alert('Automatic backup restored.');},'Restore');
+    }catch(e){alert('The automatic backup is invalid or damaged.');}
+  }
+  function refreshAutoBackup(){try{localStorage.setItem(AUTO_BACKUP_STORE,JSON.stringify({...state,exportedAt:new Date().toISOString()},null,2));}catch(e){}}
+  function importBackup(e){
+    const file=e.target.files?.[0];if(!file)return;
+    const reader=new FileReader();
+    reader.onload=()=>{
+      try{
+        const s=JSON.parse(reader.result);
+        if(!s||!Number.isFinite(s.balance)||!Array.isArray(s.dailyTasks)||!Array.isArray(s.achievements)||!Array.isArray(s.rewards)||!Array.isArray(s.history))throw new Error('Invalid backup');
+        showConfirm('Import backup?', 'Importing replaces the data currently saved on this device. Export your current data first if you want to keep it.',()=>{
+          const clean={...blankState(),...s,weeklyTasks:Array.isArray(s.weeklyTasks)?s.weeklyTasks:[],secretDailyTasks:Array.isArray(s.secretDailyTasks)?s.secretDailyTasks:[],secretWeeklyTasks:Array.isArray(s.secretWeeklyTasks)?s.secretWeeklyTasks:[],secretAchievements:Array.isArray(s.secretAchievements)?s.secretAchievements:[],secretHistoryLabel:typeof s.secretHistoryLabel==='string'?s.secretHistoryLabel:'',maskSecretNames:typeof s.maskSecretNames==='boolean'?s.maskSecretNames:true,history:Array.isArray(s.history)?s.history.map(h=>{if(h&&(['Secret daily task','Secret weekly task','Secret achievement'].includes(h.kind)||['secretDaily','secretWeekly','secretAchievement'].includes(h.sourceType)))return {...h,kind:'Bonus point',label:(String(s.secretHistoryLabel||'').trim()||'Bonus point'),sourceType:h.sourceType||(h.kind==='Secret weekly task'?'secretWeekly':h.kind==='Secret achievement'?'secretAchievement':'secretDaily')};return h;}):[],claimedWeekly:s.claimedWeekly&&typeof s.claimedWeekly==='object'?s.claimedWeekly:{},claimedSecretDaily:s.claimedSecretDaily&&typeof s.claimedSecretDaily==='object'?s.claimedSecretDaily:{},claimedSecretWeekly:s.claimedSecretWeekly&&typeof s.claimedSecretWeekly==='object'?s.claimedSecretWeekly:{},claimedSecretAchievements:Array.isArray(s.claimedSecretAchievements)?s.claimedSecretAchievements:[]};
+          delete clean.exportedAt;
+          state={...clean,version:1};
+          save();render();alert('Backup imported.');
+        },'Import');
+      }catch(err){alert('This file is not a valid Point Club backup.');}
+      e.target.value='';
+    };
+    reader.onerror=()=>alert('Could not read this file.');
+    reader.readAsText(file);
+  }
+  // Keep midnight reset correct even if the app remains open across midnight.
+  let lastDay=todayKey(), lastWeek=weekKey();
+  setInterval(()=>{const now=todayKey(),week=weekKey();if(now!==lastDay||week!==lastWeek){lastDay=now;lastWeek=week;render();}},15000);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){refreshAutoBackup();}else{render();if(secretUnlocked)armSecretLock();processScheduledDriveBackup(false);}});
+  window.addEventListener('pagehide',refreshAutoBackup);
+  window.addEventListener('beforeunload',refreshAutoBackup);
+  window.addEventListener('pageshow',()=>processScheduledDriveBackup(true));
+  window.addEventListener('online',()=>processScheduledDriveBackup(false));
+  document.addEventListener('resume',()=>processScheduledDriveBackup(false));
+  ['pointerdown','pointermove','keydown','touchstart'].forEach(evt=>document.addEventListener(evt,()=>{if(secretUnlocked)armSecretLock();},{passive:true}));
+  render();
+  const startupDriveMeta=readDriveAutoMeta();
+  if(startupDriveMeta.pendingKey&&startupDriveMeta.completedKey!==startupDriveMeta.pendingKey){
+    const dueAt=(Number(startupDriveMeta.pendingAt)||0)+60*60*1000;
+    if(dueAt>Date.now())driveAutoTimer=setTimeout(()=>processScheduledDriveBackup(false),dueAt-Date.now());
+    else setDriveStatus('A Google Drive backup is overdue. It will be attempted now; if Google authorization is blocked, tap Connect Google Drive.');
+  }
+  processScheduledDriveBackup(true);
+})();
+</script>
+</body>
+</html>
