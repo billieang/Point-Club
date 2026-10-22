@@ -7,7 +7,7 @@
 <title>Point Club — Offline Rewards</title>
 <style>
 :root{--green:#173f35;--green2:#24634f;--mint:#dff2e8;--bg:#f4f7f5;--card:#fff;--text:#1c2924;--muted:#65746d;--line:#dfe7e2;--red:#b42318;--gold:#946200;--shadow:0 5px 18px rgba(20,50,38,.06)}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 14px;font-weight:650;background:var(--green);color:white}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#edf3ef;color:var(--green);border:1px solid var(--line)}.danger{background:#fff0ee;color:var(--red);border:1px solid #f2d1cd}.small{padding:7px 10px;border-radius:9px;font-size:14px}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:92px}.top{background:var(--green);color:white;padding:22px 18px 24px;border-radius:0 0 24px 24px}.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:19px}.brand-mark{width:40px;height:40px;border-radius:13px;background:#2d6b55;display:grid;place-items:center;font-size:22px}.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#c5ded2;margin-top:20px}.balance{font-size:36px;font-weight:800;letter-spacing:-.04em;margin:2px 0}.balance small{font-size:15px;font-weight:600;letter-spacing:0;color:#d5e6dc}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.today{font-size:13px;color:#d5e6dc}.content{padding:18px 14px}.pagehead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:2px 2px 16px}.pagehead h1{font-size:23px;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:3px}.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px max(8px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));z-index:10}.nav button{background:transparent;color:var(--muted);padding:7px 3px;font-size:11px;display:flex;align-items:center;flex-direction:column;gap:3px}.nav button .ico{font-size:20px}.nav button.active{color:var(--green);background:var(--mint)}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:11px;box-shadow:var(--shadow)}.itemtop{display:flex;align-items:flex-start;gap:12px}.itemicon{width:43px;height:43px;border-radius:13px;background:#edf5f0;display:grid;place-items:center;font-size:21px;flex-shrink:0}.itemmain{flex:1;min-width:0}.itemtitle{font-weight:750;overflow-wrap:anywhere}.itemdesc{font-size:13px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.points{font-weight:800;color:var(--green);white-space:nowrap}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.claimed{font-size:12px;color:var(--green2);background:var(--mint);padding:7px 10px;border-radius:9px;font-weight:700}.empty{text-align:center;padding:28px 16px;color:var(--muted);background:white;border:1px dashed #cad8d0;border-radius:16px}.empty .big{font-size:30px;margin-bottom:8px}.empty b{display:block;color:var(--text);margin-bottom:4px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;background:#edf3ef;color:var(--muted);font-size:12px}.history-row{display:flex;gap:11px;align-items:flex-start}.history-sign{width:37px;height:37px;display:grid;place-items:center;border-radius:50%;background:#edf5f0;font-size:17px;flex-shrink:0}.history-detail{flex:1;min-width:0}.history-title{font-weight:700;overflow-wrap:anywhere}.history-date{font-size:12px;color:var(--muted);margin-top:3px}.change{font-weight:800;white-space:nowrap}.positive{color:#18734c}.negative{color:var(--red)}.after{font-size:11px;color:var(--muted);text-align:right;margin-top:3px}.field{display:flex;flex-direction:column;gap:6px;margin:13px 0}.field label{font-size:13px;font-weight:700}.field input,.field textarea{width:100%;padding:12px;border:1px solid #cbd8d0;border-radius:11px;background:white;color:var(--text);outline-color:var(--green2)}.field textarea{min-height:75px;resize:vertical}.modal-backdrop{position:fixed;inset:0;background:rgba(9,25,18,.5);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:12px}.modal-backdrop.show{display:flex}.modal{background:var(--bg);width:100%;max-width:560px;border-radius:22px 22px 18px 18px;padding:20px;max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.modalhead h2{font-size:20px;margin:0}.close{width:36px;height:36px;padding:0;border-radius:50%;background:#e7eee9;color:var(--green);font-size:20px}.modal-buttons{display:flex;gap:9px;margin-top:18px}.modal-buttons button{flex:1}.notice{padding:11px 13px;background:#eaf5ee;border:1px solid #cde4d5;border-radius:12px;color:#185c3e;font-size:13px;margin-bottom:12px}.notice.warn{background:#fff5e4;border-color:#f2dfb7;color:#775000}.tasktabs{display:flex;gap:8px;margin:0 2px 14px}.tasktabs button{flex:1}.secret-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:14px;user-select:none}.sectionlabel{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:750;margin:18px 2px 9px}.footer-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.hide{display:none!important}@media(min-width:650px){.content{padding:22px}.top{padding:24px 24px 28px}.nav{position:sticky;bottom:0;border:1px solid var(--line);border-radius:16px;margin:0 14px 12px;padding-bottom:7px}.app{padding-bottom:0}.modal-backdrop{align-items:center}.modal{border-radius:22px}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 14px;font-weight:650;background:var(--green);color:white}button:disabled{opacity:.45;cursor:not-allowed}.secondary{background:#edf3ef;color:var(--green);border:1px solid var(--line)}.danger{background:#fff0ee;color:var(--red);border:1px solid #f2d1cd}.small{padding:7px 10px;border-radius:9px;font-size:14px}.app{max-width:760px;margin:auto;min-height:100vh;padding-bottom:92px}.top{background:var(--green);color:white;padding:22px 18px 24px;border-radius:0 0 24px 24px}.brand{display:flex;align-items:center;gap:10px;font-weight:750;font-size:19px}.brand-mark{width:40px;height:40px;border-radius:13px;background:#2d6b55;display:grid;place-items:center;font-size:22px}.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:#c5ded2;margin-top:20px}.balance{font-size:36px;font-weight:800;letter-spacing:-.04em;margin:2px 0}.balance small{font-size:15px;font-weight:600;letter-spacing:0;color:#d5e6dc}.topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.today{font-size:13px;color:#d5e6dc}.content{padding:18px 14px}.pagehead{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin:2px 2px 16px}.pagehead h1{font-size:23px;margin:0}.sub{font-size:13px;color:var(--muted);margin-top:3px}.nav{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:7px max(8px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-left));z-index:10}.nav button{background:transparent;color:var(--muted);padding:7px 3px;font-size:11px;display:flex;align-items:center;flex-direction:column;gap:3px}.nav button .ico{font-size:20px}.nav button.active{color:var(--green);background:var(--mint)}.card{background:var(--card);border:1px solid var(--line);border-radius:17px;padding:15px;margin-bottom:11px;box-shadow:var(--shadow)}.itemtop{display:flex;align-items:flex-start;gap:12px}.itemicon{width:43px;height:43px;border-radius:13px;background:#edf5f0;display:grid;place-items:center;font-size:21px;flex-shrink:0}.itemmain{flex:1;min-width:0}.itemtitle{font-weight:750;overflow-wrap:anywhere}.itemdesc{font-size:13px;color:var(--muted);margin-top:3px;white-space:pre-wrap;overflow-wrap:anywhere}.points{font-weight:800;color:var(--green);white-space:nowrap}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:13px}.claimed{font-size:12px;color:var(--green2);background:var(--mint);padding:7px 10px;border-radius:9px;font-weight:700}.empty{text-align:center;padding:28px 16px;color:var(--muted);background:white;border:1px dashed #cad8d0;border-radius:16px}.empty .big{font-size:30px;margin-bottom:8px}.empty b{display:block;color:var(--text);margin-bottom:4px}.pill{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;background:#edf3ef;color:var(--muted);font-size:12px}.history-row{display:flex;gap:11px;align-items:flex-start}.history-sign{width:37px;height:37px;display:grid;place-items:center;border-radius:50%;background:#edf5f0;font-size:17px;flex-shrink:0}.history-detail{flex:1;min-width:0}.history-title{font-weight:700;overflow-wrap:anywhere}.history-date{font-size:12px;color:var(--muted);margin-top:3px}.change{font-weight:800;white-space:nowrap}.positive{color:#18734c}.negative{color:var(--red)}.after{font-size:11px;color:var(--muted);text-align:right;margin-top:3px}.field{display:flex;flex-direction:column;gap:6px;margin:13px 0}.field label{font-size:13px;font-weight:700}.field input,.field textarea{width:100%;padding:12px;border:1px solid #cbd8d0;border-radius:11px;background:white;color:var(--text);outline-color:var(--green2)}.field textarea{min-height:75px;resize:vertical}.tier-editor{border:1px solid var(--line);background:#f8fbf9;border-radius:13px;padding:12px;margin:10px 0}.tier-editor h3{font-size:14px;margin:0 0 8px}.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.tier-grid .field{margin:5px 0}.tier-grid .field label{font-size:12px}.tier-grid input{padding:10px}.tier-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}.tier-actions .sub{flex:1}.modal-backdrop{position:fixed;inset:0;background:rgba(9,25,18,.5);display:none;align-items:flex-end;justify-content:center;z-index:20;padding:12px}.modal-backdrop.show{display:flex}.modal{background:var(--bg);width:100%;max-width:560px;border-radius:22px 22px 18px 18px;padding:20px;max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between;align-items:center;gap:10px}.modalhead h2{font-size:20px;margin:0}.close{width:36px;height:36px;padding:0;border-radius:50%;background:#e7eee9;color:var(--green);font-size:20px}.modal-buttons{display:flex;gap:9px;margin-top:18px}.modal-buttons button{flex:1}.notice{padding:11px 13px;background:#eaf5ee;border:1px solid #cde4d5;border-radius:12px;color:#185c3e;font-size:13px;margin-bottom:12px}.notice.warn{background:#fff5e4;border-color:#f2dfb7;color:#775000}.tasktabs{display:flex;gap:8px;margin:0 2px 14px}.tasktabs button{flex:1}.secret-hint{font-size:11px;color:var(--muted);text-align:center;margin-top:14px;user-select:none}.sectionlabel{font-size:12px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:750;margin:18px 2px 9px}.footer-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.hide{display:none!important}@media(min-width:650px){.content{padding:22px}.top{padding:24px 24px 28px}.nav{position:sticky;bottom:0;border:1px solid var(--line);border-radius:16px;margin:0 14px 12px;padding-bottom:7px}.app{padding-bottom:0}.modal-backdrop{align-items:center}.modal{border-radius:22px}}
 </style>
 </head>
 <body>
@@ -37,8 +37,8 @@
       <input type="hidden" id="itemId">
       <input type="hidden" id="itemType">
       <div class="field"><label for="itemName">Name</label><input id="itemName" maxlength="100" required placeholder="e.g. Exercise"></div>
-      <div class="field"><label for="itemPoints">Points</label><input id="itemPoints" type="number" min="1" max="100000000" step="1" required placeholder="e.g. 20"></div>
-      <div class="field" id="tierField"><label for="itemTiers">Tier milestones (optional; format: repetitions:total points, e.g. 1:1, 10:2, 20:5, 50:10)</label><input id="itemTiers" maxlength="300" placeholder="1:1, 10:2, 20:5, 50:10"><div class="sub">For daily/weekly tasks only. Each Earn click jumps to the next milestone. The point values are cumulative totals; after the final tier, the task is complete and cannot be earned again until its reset.</div></div>
+      <div class="field" id="basePointsField"><label for="itemPoints">Points</label><input id="itemPoints" type="number" min="1" max="100000000" step="1" required placeholder="e.g. 20"></div>
+      <div class="field" id="tierField"><label>Tier rewards (optional)</label><div class="sub">Use tiers when a task has multiple milestones. Each tier defines the repetition target, its description, and the cumulative total points earned.</div><div id="tierEditors"></div><div class="actions"><button type="button" class="secondary" id="addTierBtn">Add first tier</button></div></div>
       <div class="field"><label for="itemDesc">Description (optional)</label><textarea id="itemDesc" maxlength="500" placeholder="Add a note or details"></textarea></div>
       <div class="modal-buttons"><button type="button" class="secondary" id="cancelModal">Cancel</button><button type="submit" id="saveItem">Save</button></div>
     </form>
@@ -69,6 +69,7 @@
     return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
   };
   const weekKey = (date=new Date()) => { const d=new Date(date); d.setHours(0,0,0,0); d.setDate(d.getDate()-((d.getDay()+6)%7)); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
+  const todayKeyForDate = date => { const d=new Date(date); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`; };
   const uid = () => 'i' + Date.now().toString(36) + Math.random().toString(36).slice(2,8);
   const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:0});
   const escapeHTML = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -154,7 +155,7 @@
   document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>setPage(b.dataset.page)));
   function validTiers(raw){
     if(!Array.isArray(raw))return [];
-    const tiers=raw.map(t=>({repetitions:Number(t.repetitions),points:Number(t.points)})).filter(t=>Number.isSafeInteger(t.repetitions)&&t.repetitions>0&&Number.isSafeInteger(t.points)&&t.points>=0).sort((a,b)=>a.repetitions-b.repetitions);
+    const tiers=raw.map(t=>({repetitions:Number(t.repetitions),points:Number(t.points),description:String(t.description||'').trim()})).filter(t=>Number.isSafeInteger(t.repetitions)&&t.repetitions>0&&Number.isSafeInteger(t.points)&&t.points>=0).sort((a,b)=>a.repetitions-b.repetitions);
     return tiers.every((t,i)=>i===0||(t.repetitions>tiers[i-1].repetitions&&t.points>=tiers[i-1].points))?tiers:[];
   }
   function getTierProgress(item,type,period){
@@ -166,22 +167,49 @@
     return {period,repetitions:Number(p.repetitions)||0,tierIndex:Number.isInteger(p.tierIndex)?p.tierIndex:-1,awardedPoints:Number(p.awardedPoints)||0};
   }
   function nextTier(tiers,progress){return tiers.find(t=>t.repetitions>progress.repetitions)||tiers[tiers.length-1];}
-  function parseTiers(value){
-    if(!value.trim())return [];
-    const tiers=value.split(',').map(part=>{const m=part.trim().match(/^(\d+)\s*:\s*(\d+)$/);if(!m)throw new Error('Use repetitions:total points, for example 1:1, 10:2, 20:5, 50:10.');return {repetitions:Number(m[1]),points:Number(m[2])};});
-    const sorted=tiers.slice().sort((a,b)=>a.repetitions-b.repetitions);
-    if(sorted.some((t,i)=>!Number.isSafeInteger(t.repetitions)||t.repetitions<1||!Number.isSafeInteger(t.points)||t.points<0||(i>0&&(t.repetitions<=sorted[i-1].repetitions||t.points<sorted[i-1].points))))throw new Error('Milestones must have increasing repetition counts and non-decreasing total points.');
-    return sorted;
+  function parseTierEditors(){
+    const editors=[...$('tierEditors').querySelectorAll('.tier-editor')];
+    const tiers=editors.map((el,i)=>({repetitions:Number(el.querySelector('[data-tier-reps]').value),description:el.querySelector('[data-tier-description]').value.trim(),points:Number(el.querySelector('[data-tier-points]').value)}));
+    if(!tiers.length)return [];
+    if(tiers.some((t,i)=>!Number.isSafeInteger(t.repetitions)||t.repetitions<1||!Number.isSafeInteger(t.points)||t.points<0||!t.description))throw new Error('Enter a positive repetition target, a description, and whole-number total points for every tier.');
+    if(tiers.some((t,i)=>i>0&&(t.repetitions<=tiers[i-1].repetitions||t.points<tiers[i-1].points)))throw new Error('Each tier must require more repetitions and have equal or greater cumulative total points than the previous tier.');
+    return tiers;
+  }
+  function renderTierEditors(tiers=[]){
+    const root=$('tierEditors');
+    root.innerHTML=tiers.map((t,i)=>`<section class="tier-editor" data-tier-index="${i}"><h3>Tier ${i+1}</h3><div class="tier-grid"><div class="field"><label>Repetitions required</label><input data-tier-reps type="number" min="1" step="1" required value="${Number(t.repetitions)|| (i===0?1:(Number(tiers[i-1]?.repetitions)||1)+1)}" placeholder="e.g. ${i===0?1:(Number(tiers[i-1]?.repetitions)||1)+1}"></div><div class="field"><label>Cumulative total points</label><input data-tier-points type="number" min="0" step="1" required value="${Number.isFinite(Number(t.points))?Number(t.points):(i===0?1:Number(tiers[i-1]?.points)||1)}" placeholder="e.g. 5"></div></div><div class="field"><label>Tier description</label><input data-tier-description maxlength="160" required value="${escapeHTML(t.description||`Tier ${i+1}`)}" placeholder="e.g. Complete 10 repetitions"></div>${i>0?`<div class="tier-actions"><span class="sub">Reached after Tier ${i}</span><button type="button" class="danger small" data-remove-tier="${i}">Remove tier</button></div>`:''}</section>`).join('');
+    $('addTierBtn').textContent=tiers.length?'Add next tier':'Add first tier';
+    $('basePointsField').classList.toggle('hide',tiers.length>0);
+    $('itemPoints').required=tiers.length===0;
+    $('addTierBtn').classList.toggle('hide',!['daily','weekly','secretDaily','secretWeekly'].includes($('itemType').value));
+  }
+  function setTierEditors(tiers){
+    renderTierEditors(tiers);
   }
   function earnTier(item,type){
     const isDaily=type==='daily'||type==='secretDaily', period=isDaily?todayKey():weekKey(), key=isDaily?'tierDailyProgress':'tierWeeklyProgress';
     const tiers=validTiers(item.tiers); if(!tiers.length)return false;
     const progress=getTierProgress(item,type,period);
     if(progress.tierIndex>=tiers.length-1&&progress.repetitions>=tiers[tiers.length-1].repetitions)return true;
-    const target=nextTier(tiers,progress); const newReps=target.repetitions; const newIndex=tiers.indexOf(target); const add=Math.max(0,target.points-progress.awardedPoints);
-    state[key][item.id]={period,repetitions:newReps,tierIndex:newIndex,awardedPoints:Math.max(progress.awardedPoints,target.points)};
-    if(add>0){addHistory(type.startsWith('secret')?'Bonus point':(isDaily?'Daily task':'Weekly task'),type.startsWith('secret')?(String(state.secretHistoryLabel||'').trim()||'Bonus point'):item.name,add,item.id,type.startsWith('secret')?type:null);state.history[0].tierProgress={repetitions:newReps,tierIndex:newIndex};if(type.startsWith('secret'))state.history[0].secretName=item.name;}
-    else save();
+    const target=nextTier(tiers,progress), newReps=target.repetitions, newIndex=tiers.indexOf(target);
+    const increment=Math.max(0,target.points-progress.awardedPoints);
+    const kind=type.startsWith('secret')?'Bonus point':(isDaily?'Daily task':'Weekly task');
+    const label=type.startsWith('secret')?(String(state.secretHistoryLabel||'').trim()||'Bonus point'):`${item.name} — ${target.description||`Tier ${newIndex+1}`}`;
+    // Keep only the current tier transaction in History, while preserving the prior tier as undo metadata.
+    const isMatchingLegacy=h=>h.itemId===item.id&&h.tierProgress&&!h.tierRecord&&((type.startsWith('secret')?h.sourceType===type:(h.kind===(isDaily?'Daily task':'Weekly task')&&!h.sourceType)))&&(()=>{const d=new Date(h.at);return !Number.isNaN(d.getTime())&&(isDaily?todayKeyForDate(d)===period:weekKey(d)===period);})();
+    const legacy=state.history.filter(isMatchingLegacy).sort((a,b)=>(Number(a.tierProgress?.tierIndex)||0)-(Number(b.tierProgress?.tierIndex)||0));
+    let legacyChain=null, cumulative=0;
+    for(const old of legacy){cumulative+=Number(old.delta)||0;legacyChain={delta:cumulative,label:old.label,kind:old.kind,at:old.at,tierProgress:old.tierProgress,tierDescription:tiers[old.tierProgress?.tierIndex]?.description||`Tier ${(Number(old.tierProgress?.tierIndex)||0)+1}`,tierPoints:cumulative,tierPrevious:legacyChain};}
+    const currentIndex=state.history.findIndex(h=>h.itemId===item.id&&h.tierRecord&&h.tierPeriod===period&&h.tierSourceType===type);
+    const previousRecord=currentIndex>=0?state.history[currentIndex]:(legacyChain?{...legacyChain,tierRecord:true,tierSourceType:type,tierPeriod:period}:null);
+    if(currentIndex>=0)state.history.splice(currentIndex,1);
+    if(legacy.length)state.history=state.history.filter(h=>!isMatchingLegacy(h));
+    state.balance+=increment;
+    const entry={id:uid(),kind,label,delta:target.points,balanceAfter:state.balance,at:new Date().toISOString(),itemId:item.id,sourceType:type.startsWith('secret')?type:null,tierRecord:true,tierSourceType:type,tierPeriod:period,tierProgress:{repetitions:newReps,tierIndex:newIndex,awardedPoints:target.points},tierDescription:target.description||`Tier ${newIndex+1}`,tierPoints:target.points,tierPrevious:previousRecord?{delta:previousRecord.delta,label:previousRecord.label,kind:previousRecord.kind,at:previousRecord.at,tierProgress:previousRecord.tierProgress,tierDescription:previousRecord.tierDescription,tierPoints:previousRecord.tierPoints,tierPrevious:previousRecord.tierPrevious}:null};
+    if(type.startsWith('secret'))entry.secretName=item.name;
+    state.history.unshift(entry);
+    state[key][item.id]={period,repetitions:newReps,tierIndex:newIndex,awardedPoints:target.points};
+    save();
     return true;
   }
   function itemCard(item,type){
@@ -197,7 +225,7 @@
     if(type==='weekly'||type==='secretWeekly') action=tiers.length?(progress.tierIndex>=tiers.length-1&&progress.repetitions>=tiers[tiers.length-1].repetitions?'<span class="claimed">✓ Final tier complete</span>':`<button data-action="earn-weekly" data-type="${type}" data-id="${escapeHTML(item.id)}">Earn to ${fmt(nextTier(tiers,progress).repetitions)} reps</button>`):(claimed?'<span class="claimed">✓ Earned this week</span>':`<button data-action="earn-weekly" data-type="${type}" data-id="${escapeHTML(item.id)}">Earn +${fmt(item.points)}</button>`);
     if(type==='achievement'||type==='secretAchievement') action=completed?'<span class="claimed">✓ Completed for life</span>':`<button data-action="claim-achievement" data-type="${type}" data-id="${escapeHTML(item.id)}">Claim +${fmt(item.points)}</button>`;
     if(type==='reward') action=`<button data-action="redeem" data-id="${escapeHTML(item.id)}">Redeem −${fmt(item.points)}</button>`;
-    return `<article class="card"><div class="itemtop"><div class="itemicon">${icons[type]}</div><div class="itemmain"><div class="itemtitle">${escapeHTML(item.name)}</div>${item.description?`<div class="itemdesc">${escapeHTML(item.description)}</div>`:''}</div><div class="points">${fmt(tiers.length?tiers[tiers.length-1].points:item.points)} pts</div></div>${tiers.length?`<div class="itemdesc">Tier progress: ${fmt(progress.repetitions)} reps · ${fmt(progress.awardedPoints)} / ${fmt(tiers[tiers.length-1].points)} points earned</div>`:''}<div class="actions">${action}<button class="secondary small" data-action="edit" data-type="${type}" data-id="${escapeHTML(item.id)}">Edit</button><button class="danger small" data-action="delete" data-type="${type}" data-id="${escapeHTML(item.id)}">Delete</button></div></article>`;
+    return `<article class="card"><div class="itemtop"><div class="itemicon">${icons[type]}</div><div class="itemmain"><div class="itemtitle">${escapeHTML(item.name)}</div>${item.description?`<div class="itemdesc">${escapeHTML(item.description)}</div>`:''}</div><div class="points">${fmt(tiers.length?tiers[tiers.length-1].points:item.points)} pts</div></div>${tiers.length?`<div class="itemdesc">Tier progress: ${fmt(progress.repetitions)} reps · ${fmt(progress.awardedPoints)} / ${fmt(tiers[tiers.length-1].points)} points earned${progress.tierIndex+1<tiers.length?`<br>Next: ${escapeHTML(tiers[progress.tierIndex+1]?.description||`Tier ${progress.tierIndex+2}`)}`:''}</div>`:''}<div class="actions">${action}<button class="secondary small" data-action="edit" data-type="${type}" data-id="${escapeHTML(item.id)}">Edit</button><button class="danger small" data-action="delete" data-type="${type}" data-id="${escapeHTML(item.id)}">Delete</button></div></article>`;
   }
   function empty(label,desc){return `<div class="empty"><div class="big">＋</div><b>${label}</b><span>${desc}</span></div>`;}
   function isSecretHistory(h){return ['secretDaily','secretWeekly','secretAchievement'].includes(h.sourceType)||['Secret daily task','Secret weekly task','Secret achievement'].includes(h.kind);}
@@ -267,17 +295,29 @@
     $('modalTitle').textContent=(item?'Edit ':'Add ')+names[type];
     $('itemId').value=item?.id||'';$('itemType').value=type;
     $('itemName').value=item?.name||'';$('itemPoints').value=item?.points??'';
-    $('itemDesc').value=item?.description||'';$('itemTiers').value=validTiers(item?.tiers).map(t=>`${t.repetitions}:${t.points}`).join(', ');$('tierField').classList.toggle('hide',!['daily','weekly','secretDaily','secretWeekly'].includes(type));
+    $('itemDesc').value=item?.description||'';$('tierField').classList.toggle('hide',!['daily','weekly','secretDaily','secretWeekly'].includes(type));
+    setTierEditors(validTiers(item?.tiers));
     $('modalBackdrop').classList.add('show');setTimeout(()=>$('itemName').focus(),80);
   }
   function closeItem(){$('modalBackdrop').classList.remove('show');}
   $('closeModal').addEventListener('click',closeItem);$('cancelModal').addEventListener('click',closeItem);
+  $('addTierBtn').addEventListener('click',()=>{
+    let existing;try{existing=parseTierEditors();}catch(err){alert(err.message);return;}
+    const prev=existing[existing.length-1];
+    existing.push({repetitions:prev?prev.repetitions+1:1,points:prev?prev.points+1:1,description:`Tier ${existing.length+1}`});
+    renderTierEditors(existing);
+  });
+  $('tierEditors').addEventListener('click',e=>{
+    const btn=e.target.closest('[data-remove-tier]');if(!btn)return;
+    const idx=Number(btn.dataset.removeTier);let tiers;try{tiers=parseTierEditors();}catch(err){alert(err.message);return;}tiers.splice(idx,1);renderTierEditors(tiers);
+  });
   $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeItem();});
   $('itemForm').addEventListener('submit',e=>{
     e.preventDefault();
-    const type=$('itemType').value,id=$('itemId').value,name=$('itemName').value.trim(),points=Number($('itemPoints').value),description=$('itemDesc').value.trim();
-    let tiers=[];try{tiers=parseTiers($('itemTiers').value);if(tiers.length&&!['daily','weekly','secretDaily','secretWeekly'].includes(type))throw new Error('Tier milestones are only available for daily and weekly tasks.');}catch(err){alert(err.message);return;}
-    if(!name||!Number.isSafeInteger(points)||points<1){alert('Enter a name and a whole-number point value greater than zero.');return;}
+    const type=$('itemType').value,id=$('itemId').value,name=$('itemName').value.trim();let points=Number($('itemPoints').value);const description=$('itemDesc').value.trim();
+    let tiers=[];try{tiers=parseTierEditors();if(tiers.length&&!['daily','weekly','secretDaily','secretWeekly'].includes(type))throw new Error('Tier milestones are only available for daily and weekly tasks.');}catch(err){alert(err.message);return;}
+    if(!name||(!tiers.length&&(!Number.isSafeInteger(points)||points<1))){alert('Enter a name and a whole-number point value greater than zero.');return;}
+    if(tiers.length)points=tiers[tiers.length-1].points;
     const key=type==='daily'?'dailyTasks':type==='weekly'?'weeklyTasks':type==='secretDaily'?'secretDailyTasks':type==='secretWeekly'?'secretWeeklyTasks':type==='secretAchievement'?'secretAchievements':type==='achievement'?'achievements':'rewards';
     if(id){const item=state[key].find(x=>x.id===id);if(item){item.name=name;item.points=points;item.description=description;if(tiers.length)item.tiers=tiers;else delete item.tiers;}}
     else state[key].push({id:uid(),name,points,description,...(tiers.length?{tiers}:{}),createdAt:new Date().toISOString()});
@@ -285,12 +325,25 @@
   });
   function removeHistory(id){
     const h=state.history.find(x=>x.id===id);if(!h)return;
-    showConfirm('Remove transaction?',`Remove “${h.label}” (${h.delta>0?'+':''}${fmt(h.delta)} points)? Your balance will be adjusted by ${fmt(-h.delta)} points. This cannot be undone except by restoring a backup.`,()=>{
-      state.balance-=Number(h.delta)||0;state.history=state.history.filter(x=>x.id!==id);
-      if(h.kind==='Daily task'){const item=state.dailyTasks.find(x=>x.id===h.itemId)||state.dailyTasks.find(x=>x.name===h.label);if(item&&state.claimedDaily[item.id]===todayKey())delete state.claimedDaily[item.id];}
-      if(h.kind==='Weekly task'){const item=state.weeklyTasks.find(x=>x.id===h.itemId)||state.weeklyTasks.find(x=>x.name===h.label);if(item&&state.claimedWeekly[item.id]===weekKey())delete state.claimedWeekly[item.id];}
-      if(h.sourceType==='secretDaily'||h.kind==='Secret daily task'){const item=state.secretDailyTasks.find(x=>x.id===h.itemId);if(item&&state.claimedSecretDaily[item.id]===todayKey())delete state.claimedSecretDaily[item.id];}
-      if(h.sourceType==='secretWeekly'||h.kind==='Secret weekly task'){const item=state.secretWeeklyTasks.find(x=>x.id===h.itemId);if(item&&state.claimedSecretWeekly[item.id]===weekKey())delete state.claimedSecretWeekly[item.id];}
+    showConfirm('Remove transaction?',`Remove “${h.label}” (${h.delta>0?'+':''}${fmt(h.delta)} points)? ${h.tierRecord?'The tier reward will be reversed and the task restored to the previous tier.':`Your balance will be adjusted by ${fmt(-h.delta)} points.`} This cannot be undone except by restoring a backup.`,()=>{
+      if(h.tierRecord){
+        const prev=h.tierPrevious;
+        const prevPoints=prev?Number(prev.tierPoints)||Number(prev.delta)||0:0;
+        state.balance-=Math.max(0,(Number(h.tierPoints)||Number(h.delta)||0)-prevPoints);
+        state.history=state.history.filter(x=>x.id!==id);
+        const isDaily=h.tierSourceType==='daily'||h.tierSourceType==='secretDaily';
+        const progressKey=isDaily?'tierDailyProgress':'tierWeeklyProgress';
+        if(prev){
+          const restored={id:uid(),kind:prev.kind||h.kind,label:prev.label,delta:Number(prev.delta)||prevPoints,balanceAfter:state.balance,at:prev.at||new Date().toISOString(),itemId:h.itemId,sourceType:h.sourceType,tierRecord:true,tierSourceType:h.tierSourceType,tierPeriod:h.tierPeriod,tierProgress:prev.tierProgress,tierDescription:prev.tierDescription,tierPoints:prevPoints,tierPrevious:prev.tierPrevious||null};
+          if(h.secretName)restored.secretName=h.secretName;
+          state.history.unshift(restored);
+          state[progressKey][h.itemId]={period:h.tierPeriod,repetitions:Number(prev.tierProgress?.repetitions)||0,tierIndex:Number.isInteger(prev.tierProgress?.tierIndex)?prev.tierProgress.tierIndex:-1,awardedPoints:prevPoints};
+        }else if(state[progressKey])delete state[progressKey][h.itemId];
+      }else{state.balance-=Number(h.delta)||0;state.history=state.history.filter(x=>x.id!==id);}
+      if(h.kind==='Daily task'&&!h.tierRecord){const item=state.dailyTasks.find(x=>x.id===h.itemId)||state.dailyTasks.find(x=>x.name===h.label);if(item&&state.claimedDaily[item.id]===todayKey())delete state.claimedDaily[item.id];}
+      if(h.kind==='Weekly task'&&!h.tierRecord){const item=state.weeklyTasks.find(x=>x.id===h.itemId)||state.weeklyTasks.find(x=>x.name===h.label);if(item&&state.claimedWeekly[item.id]===weekKey())delete state.claimedWeekly[item.id];}
+      if(!h.tierRecord&&(h.sourceType==='secretDaily'||h.kind==='Secret daily task')){const item=state.secretDailyTasks.find(x=>x.id===h.itemId);if(item&&state.claimedSecretDaily[item.id]===todayKey())delete state.claimedSecretDaily[item.id];}
+      if(!h.tierRecord&&(h.sourceType==='secretWeekly'||h.kind==='Secret weekly task')){const item=state.secretWeeklyTasks.find(x=>x.id===h.itemId);if(item&&state.claimedSecretWeekly[item.id]===weekKey())delete state.claimedSecretWeekly[item.id];}
       if(h.kind==='Achievement'){const item=state.achievements.find(x=>x.id===h.itemId)||state.achievements.find(x=>x.name===h.label);if(item)state.claimedAchievements=state.claimedAchievements.filter(x=>x!==item.id);}
       if(h.sourceType==='secretAchievement'){state.claimedSecretAchievements=state.claimedSecretAchievements.filter(x=>x!==h.itemId);}
       let running=state.balance;
